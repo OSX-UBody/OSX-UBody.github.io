@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="A one-stage whole-body mesh recovery method OSX and an upper-body dataset UBody.">
+  <meta name="description" content="A one-stage whole-body mesh recovery method OSX and an upper-body dataset UBody.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>One-Stage 3D Whole-Body Mesh Recovery with Component Aware Transformer</title>
@@ -22,15 +22,13 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
@@ -40,387 +38,284 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://osx.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h4 class="title conference-title">CVPR 2023</h4>
-          <h1 class="title is-1 publication-title">One-Stage 3D Whole-Body Mesh Recovery with Component Aware Transformer</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://scholar.google.com.hk/citations?user=SvaU2GMAAAAJ&hl=zh-CN">Jing Lin</a><sup>1,2</sup>,</span>
-            <span class="author-block">
-              <a href="https://ailingzeng.site/">Ailing Zeng</a><sup>1</sup><sup>#</sup>,</span>
-            <span class="author-block">
-              <a href="https://www.sigs.tsinghua.edu.cn/whq_en/main.htm">Haoqian Wang</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.leizhang.org/">Lei Zhang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://yu-li.github.io/">Yu Li</a><sup>1</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>International Digital Economy Academy (IDEA),</span>
-            <span class="author-block"><sup>2</sup>Shenzhen International Graduate School, Tsinghua University</span>
-          </div>
-
-
-          <div class="is-size-6 publication-authors">
-            <span class="author-block"><sup>#</sup>Correspondence Author</span>
-          </div>
-
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
           <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://osx-ubody.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
+            <h4 class="title conference-title is-4">CVPR 2023</h4>
+            <h2 class="title is-2 publication-title">One-Stage 3D Whole-Body Mesh Recovery with Component Aware
+              Transformer</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=SvaU2GMAAAAJ&hl=zh-CN">Jing Lin</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://ailingzeng.site/">Ailing Zeng</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.sigs.tsinghua.edu.cn/whq_en/main.htm">Haoqian Wang</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.leizhang.org/">Lei Zhang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://yu-li.github.io/">Yu Li</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>International Digital Economy Academy (IDEA),</span>
+              <span class="author-block"><sup>2</sup>Shenzhen International Graduate School, Tsinghua University</span>
+            </div>
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
                 </a>
-              </span>
-              <span class="link-block">
-                <a href="https://osx-ubody.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+              </span> -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://osx-ubody.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-youtube"></i>
+                    <i class="fab fa-youtube"></i>
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://osx-ubody.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+              </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
+                    </span>
+                    <span>Code (coming soon)</span>
                   </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://osx-ubody.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
                       <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
+                    </span>
+                    <span>Data (coming soon)</span>
                   </a>
+              </div>
+
             </div>
-
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/teaser.png" autoplay muted loop playsinline height="100%">
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">OSX</span> estimates whole-body mesh from a monocular image in one stage.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/demo_video_speedup.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        UBody is large-scale Upper-Body dataset with high-quality 2D and 3D whole-body annotations.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<p style="margin-bottom: -1.5cm;"></p>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Whole-body mesh recovery aims to estimate the 3D human body, face, and hands parameters from a single image.
-            It is challenging to perform this task with a single network due to resolution issues, i.e., the face and hands are usually located in extremely small regions.
-          </p>
-          <p>
-            Existing works usually detect hands and faces, enlarge their resolution to feed in a specific network to predict the parameter,
-            and finally fuse the results. While this copy-paste pipeline can capture the fine-grained details of the face and hands,
-            the connections between different parts cannot be easily recovered in late fusion, leading to implausible 3D rotation and unnatural pose.
-          </p>
-          <p>
-            In this work, we propose a one-stage pipeline for expressive whole-body mesh recovery, named OSX, without separate networks for each part.
-            Specifically, we design a Component Aware Transformer (CAT) composed of a global body encoder and a local face/hand decoder.
-            The encoder predicts the body parameters and provides a high-quality feature map for the decoder,
-            which performs a feature-level upsample-crop scheme to extract high-resolution part-specific features and
-            adopt keypoint-guided deformable attention to estimate hand and face precisely.
-            The whole pipeline is simple yet effective without any manual post-processing and
-            naturally avoids implausible prediction. Comprehensive experiments demonstrate the effectiveness of OSX.
-          </p>
-          <p>
-            Lastly, we build a large-scale Upper-Body dataset (UBody) with high-quality 2D and 3D whole-body annotations.
-            It contains persons with partially visible bodies in diverse real-life scenarios to bridge the gap between the basic task and downstream applications.
-          </p>
-        </div>
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h5 class="subtitle is-5">
+          <i>OSX</i> is a one-stage pipeline for expressive whole-body (body, face, and hand) mesh recoveryes from
+          monocular
+          images. It is the top-1 method on AGORA Smpl-X Leaderboard (dated March 2023).
+        </h5>
+        <img src="./static/images/teaser.png" autoplay muted loop playsinline height="100%">
       </div>
     </div>
-    <!--/ Abstract. -->
+  </section>
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <p style="margin-bottom: -1.5cm;"></p>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Whole-body mesh recovery aims to estimate the 3D human body, face, and hands parameters from a single
+              image.
+              It is challenging to perform this task with a single network due to resolution issues, i.e., the face and
+              hands are usually located in extremely small regions.
+            </p>
+            <p>
+              Existing works usually detect hands and faces, enlarge their resolution to feed in a specific network to
+              predict the parameter,
+              and finally fuse the results. While this copy-paste pipeline can capture the fine-grained details of the
+              face and hands,
+              the connections between different parts cannot be easily recovered in late fusion, leading to implausible
+              3D
+              rotation and unnatural pose.
+            </p>
+            <p>
+              In this work, we propose a one-stage pipeline for expressive whole-body mesh recovery, named OSX, without
+              separate networks for each part.
+              Specifically, we design a Component Aware Transformer (CAT) composed of a global body encoder and a local
+              face/hand decoder.
+              The encoder predicts the body parameters and provides a high-quality feature map for the decoder,
+              which performs a feature-level upsample-crop scheme to extract high-resolution part-specific features and
+              adopt keypoint-guided deformable attention to estimate hand and face precisely.
+              The whole pipeline is simple yet effective without any manual post-processing and
+              naturally avoids implausible prediction. Comprehensive experiments demonstrate the effectiveness of OSX.
+            </p>
+            <p>
+              Lastly, we build a large-scale Upper-Body dataset (UBody) with high-quality 2D and 3D whole-body
+              annotations.
+              It contains persons with partially visible bodies in diverse real-life scenarios to bridge the gap between
+              the basic task and downstream applications.
+            </p>
+          </div>
         </div>
       </div>
+      <!--/ Abstract. -->
     </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
+  </section>
 
+  <p style="margin-bottom: -1.5cm;"></p>
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-
-      <!-- Matting. -->
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
+  <section class="hero">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <h3 class="title is-3">Comparisons with Other Methods</h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item agora_1">
+            <img src="./static/images/agora_1.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
           </div>
 
+          <div class="item agora_2">
+            <img src="./static/images/agora_2.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item agora_3">
+            <img src="./static/images/agora_3.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item agora_4">
+            <img src="./static/images/agora_4.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item agora_5">
+            <img src="./static/images/agora_5.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ehf_1">
+            <img src="./static/images/ehf_1.png" class="interpolation-image" alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ehf_2">
+            <img src="./static/images/ehf_2.png" class="interpolation-image" alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ehf_3">
+            <img src="./static/images/ehf_3.png" class="interpolation-image" alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ehf_4">
+            <img src="./static/images/ehf_4.png" class="interpolation-image" alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ubody_1">
+            <img src="./static/images/ubody_1.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ubody_2">
+            <img src="./static/images/ubody_2.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ubody_3">
+            <img src="./static/images/ubody_3.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ubody_4">
+            <img src="./static/images/ubody_4.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+          <div class="item ubody_5">
+            <img src="./static/images/ubody_5.png" class="interpolation-image"
+              alt="Interpolation end reference image." />
+          </div>
+
+
         </div>
+        <h2 class="subtitle has-text-centered">
+          From left to right: 1. Input, 2. ExPose, 3. Hand4Whoe, 4. OSX (Ours)
+        </h2>
       </div>
     </div>
-    <!--/ Matting. -->
+  </section>
 
-    <!DOCTYPE html>
-    <p style="margin-bottom: -1.5cm;"></p>
 
-    <html>
-    <head>
-      <title>Image Switcher on Circle Click</title>
-      <h2 class="title is-3">Comparison with SOTA Methods</h2>
-      <style type="text/css">
-        #image-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          position: relative;
-          margin-top: -200px; /* adjust as needed */
-        }
-        #image {
-          max-width: 100%;
-          height: auto;
-        }
-        .circle-container {
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          margin-bottom: 100px;
-        }
-        .circle {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background-color: #ccc;
-          margin: 0 10px;
-          cursor: pointer;
-        }
-        .active {
-          background-color: #000;
-        }
-
-        figcaption {
-          text-align: center;
-          bottom: 0;
-          margin: 10px 0;
-          font-size: 20px;
-          margin-top: -180px;
-        }
-      </style>
-      <script type="text/javascript">
-        var images = ["./static/images/agora_1.png", "./static/images/agora_2.png", "./static/images/agora_3.png", "./static/images/agora_4.png", "./static/images/agora_5.png",
-        "./static/images/ehf_1.png", "./static/images/ehf_2.png", "./static/images/ehf_3.png", "./static/images/ehf_4.png",
-        "./static/images/ubody_1.png", "./static/images/ubody_2.png", "./static/images/ubody_3.png", "./static/images/ubody_4.png", "./static/images/ubody_5.png"]; // array of image filenames
-        var captions = " &nbsp; &nbsp; &nbsp; (a) Input image &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; (b) ExPose &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; (c) Hand4Whole &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; (d) OSX (Ours)  &nbsp; &nbsp; "; // array of image captions
-
-        // var captions = ["Hello World 1", "Hello World 2", "Hello World 3"]; // array of image captions
-        var currentImage = 0; // index of current image
-
-        function switchImage(imageIndex) {
-          currentImage = imageIndex;
-          document.getElementById("image").src = images[currentImage]; // update image src
-          document.getElementById("caption").innerHTML = captions; // update caption
-          updateActiveCircle(currentImage); // update active circle
-        }
-
-        function updateActiveCircle(circleIndex) {
-          var circles = document.getElementsByClassName("circle");
-          for (var i = 0; i < circles.length; i++) {
-            if (i == circleIndex) {
-              circles[i].classList.add("active");
-            } else {
-              circles[i].classList.remove("active");
-            }
-          }
-        }
-
-        window.addEventListener("load", function() {
-          // create circles dynamically based on number of images
-          var circleContainer = document.createElement("div");
-          circleContainer.classList.add("circle-container");
-          for (var i = 0; i < images.length; i++) {
-            var circle = document.createElement("div");
-            circle.classList.add("circle");
-            if (i == 0) {
-              circle.classList.add("active");
-            }
-            circle.setAttribute("data-index", i);
-            circle.addEventListener("click", function() {
-              var index = parseInt(this.getAttribute("data-index"));
-              switchImage(index);
-            });
-            circleContainer.appendChild(circle);
-          }
-          document.getElementById("image-container").appendChild(circleContainer);
-          document.getElementById("caption").innerHTML = captions; // set initial caption
-        });
-      </script>
-    </head>
-    <body>
-      <div id="image-container">
-        <img id="image" src="./static/images/agora_1.png"> <!-- initial image -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h3 class="title is-3 has-text-centered">UBody Dataset</h3>
+        <h5 class="subtitle is-5">
+          UBody is a large-scale Upper-Body dataset with high-quality 2D and 3D whole-body annotations. We
+          will release it soon.
+        </h5>
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/demo_video_speedup.mp4" type="video/mp4">
+        </video>
       </div>
-      <figcaption id="caption">(a) Input image &nbsp;&nbsp;&nbsp; (b) ExPose          (c) Hand4Whole          (d) OSX (Ours)</figcaption>
-    </body>
-    </html>
+    </div>
+  </section>
 
-  </div>
-</section>
 
-<p style="margin-bottom: -1.5cm;"></p>
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lin2023osx,
+  <p style="margin-bottom: -1.5cm;"></p>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content is-size-6">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{lin2023osx,
   author    = {Lin, Jing and Zeng, Ailing and Wang, Haoqian and Zhang, Lei and Li, Yu},
   title     = {One-Stage 3D Whole-Body Mesh Recovery with Component Aware Transformer},
   journal   = {CVPR},
   year      = {2023},
 }</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="https://osx-ubody.github.io/">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://osx-ubody.github.io/" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/OSX-UBody/OSX-UBody.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-size-6">
+          <div class="content">
+            <p>
+              This website is created with this <a href="https://nerfies.github.io/">template</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>
